@@ -27,7 +27,7 @@ export const Header = () => {
     const user = loadState("user");
 
     const location = useLocation();
-    
+
     const [value, setValue] = useState('');
     const search = useDebounce(value);
     const { data, isLoading, isError } = useGetAll(search);
@@ -212,12 +212,12 @@ export const Header = () => {
                             </div>
                             <div className='flex gap-4 items-center'>
                                 <div className='  text-black'>
-                                    <Link>
+                                    <Link to='/favourite'>
                                         <HeartIcon />
                                     </Link>
                                 </div>
                                 <div className='  text-black'>
-                                    <Link>
+                                    <Link to='/cart'>
                                         <CartIcon />
                                     </Link>
                                 </div>
@@ -235,7 +235,7 @@ export const Header = () => {
                                     </div>
                                 </Popover.Button>
 
-                                <Popover.Panel data-headlessui-state="open" className="fixed bg-white border rounded-md  right-5  left-5 z-10 ">
+                                <Popover.Panel data-headlessui-state="open" className="fixed bg-white border rounded-md right-5 left-5 z-10 ">
                                     <Catalog />
                                 </Popover.Panel>
                             </Popover>

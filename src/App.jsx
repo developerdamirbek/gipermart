@@ -8,8 +8,10 @@ import { Cart } from "./pages/cart"
 import { Favourite } from "./pages/favourite"
 import { SingleCatalog } from "./pages/single-catalog/single-catalog"
 import { ProductDetails } from "./pages/product-details/product-details"
+import { useScrollToTop } from "./hooks/useScrollToTop"
 
 function App() {
+  useScrollToTop()
 
   return (
     <>

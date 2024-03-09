@@ -53,7 +53,7 @@ export const ProductCard = ({ img, title, id, price }) => {
                         <img className='object-cover object-center transition-all duration-700 group-hover:scale-[0.9]' src={img} alt="Product image" />
                     </div>
                     <div className='w-[157px] mb-[28px] h-[72px]'>
-                        <h3 className='text-[#333] text-[16px]  '>{title}</h3>
+                        <h3 className='text-[#333] text-[16px]  '>{title.slice(0, 45)}</h3>
                     </div>
                 </div>
             </Link>

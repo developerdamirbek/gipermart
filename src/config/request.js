@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { loadState } from '../lib/storage';
 
-const request = axios.create({ baseURL: import.meta.env.VITE_URL});
+const env = import.meta.env;
+
+const request = axios.create({ baseURL: env.VITE_URL});
 
 request.interceptors.request.use(
   (config) => {

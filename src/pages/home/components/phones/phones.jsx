@@ -19,11 +19,11 @@ export const Phones = () => {
         breakpoints={
           {
             360: {
-              slidesPerView: 1,
-              spaceBetween: 0
-            },
-            500: {
               slidesPerView: 2,
+              spaceBetween: 10
+            },
+            460: {
+              slidesPerView: 3,
               spaceBetween: 10
             },
             630: {

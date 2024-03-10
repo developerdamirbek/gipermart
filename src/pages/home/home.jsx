@@ -26,7 +26,7 @@ export const Home = () => {
                     <Phones/>
                 </div>
             </section>
-            <section className='pt-[16px] pb-[30px] bg-[#3DBFFE]'>
+            <section className='pt-[16px] pb-[30px] max-sm:pb-4 max-sm:pt-2 bg-[#3DBFFE]'>
                 <div className="container">
                     <Ads/>
                 </div>

@@ -58,16 +58,16 @@ export const SingleCatalog = () => {
     };
 
     return (
-        <div className="container mt-[150px] grid grid-cols-12 gap-6">
-            <div className="col-span-9">
+        <div className="container mt-[150px] max-sm:mt-[165px] grid grid-cols-12 max-sm:gap-0 gap-6">
+            <div className="col-span-9 max-sm:col-span-12">
                 <h2 className="text-2xl font-medium mb-6">Продукты</h2>
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-4 max-sm:flex max-sm:justify-center max-sm:gap-3 max-sm:flex-wrap gap-6 max-sm:gap-0">
                     {filteredProducts?.map(item => (
                         <ProductCard key={item.id} {...item} />
                     ))}
                 </div>
             </div>
-            <div className="col-span-3 max-h-[500px] sticky top-[160px] overflow-y-auto ">
+            <div className="col-span-3 max-sm:hidden max-h-[500px] sticky top-[160px] overflow-y-auto ">
                 <div className="bg-gray-100  p-4 rounded-lg">
                     <h3 className="text-lg font-medium mb-4">Фильтр по брендам</h3>
                     {visibleBrands?.map(item => (

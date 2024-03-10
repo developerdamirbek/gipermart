@@ -12,10 +12,7 @@ const persistedState = loadState('reduxState');
 
 const store = createStore(
     rootReducer,
-    {
-        cart: persistedState.cart,
-        liked: persistedState.liked 
-    }
+    persistedState
 );
 
 store.subscribe(() => {

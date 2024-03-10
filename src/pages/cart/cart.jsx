@@ -11,7 +11,7 @@ export const Cart = () => {
 
     const handleRemoveFromCart = (productId) => {
         dispatch(removeFromCart(productId));
-        toast.info("Product removed from cart!");
+        toast.info("Товар удален из корзины!");
     };
 
     const handleIncrement = (productId) => {
@@ -44,7 +44,7 @@ export const Cart = () => {
                         <div className="grid grid-cols-1 gap-4">
                             {cartItems.length === 0 ? (
                                 <div className='flex flex-col items-center justify-center'>
-                                    <h2 className="text-[20px] text-center text-[#333]">No products...</h2>
+                                    <h2 className="text-[20px] text-center text-[#333]">Нет продуктов...</h2>
                                     <div className='w-[400px] max-sm:w-[200px] flex items-center justify-center'>
                                         <img className='' src={bgImg} alt="" />
                                     </div>

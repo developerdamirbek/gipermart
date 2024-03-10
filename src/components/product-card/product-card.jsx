@@ -6,14 +6,12 @@ import { CartIcon } from '../../assets/icons/cart-icon';
 import { Link } from 'react-router-dom';
 import { EyeIcon } from '../../assets/icons/eye-icon';
 import { toast } from 'react-toastify';
-
 export const ProductCard = ({ img, title, id, price }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.cartItems);
     const likedProducts = useSelector(state => state.liked.likedProducts);
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
-
     useEffect(() => {
         setIsAddedToCart(cartItems.some(item => item.id === id));
         setIsLiked(likedProducts.includes(id));
@@ -22,29 +20,25 @@ export const ProductCard = ({ img, title, id, price }) => {
     const handleAddToCart = () => {
         dispatch(addToCart({ id, title, price, img, quantity: 1 }));
     };
-
     const handleRemoveFromCart = () => {
         dispatch(removeFromCart(id));
     };
-
     const handleToggleLike = () => {
         if (isLiked) {
             dispatch(removeFromLiked(id));
         } else {
-            dispatch(addToLiked(id, title, price));
+            dispatch(addToLiked(id));
 
         }
     };
-
     const handleButtonClick = () => {
         if (!isAddedToCart) {
             handleAddToCart();
-            toast.success("Product added to cart!")
+            toast.success("Товар добавлен в корзину!")
         } else {
             handleRemoveFromCart();
         }
     };
-
     return (
         <div className='w-[214px] relative group border-[0.5px] shadow-sm p-3 rounded-xl '>
             <Link to={`/products/${id}`}>

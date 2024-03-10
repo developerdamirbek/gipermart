@@ -49,6 +49,8 @@ export const Header = () => {
         setIsCatalogOpen(false);
     }, [location.pathname]);
 
+    const likedItems = useSelector(state => state.liked.likedProducts);
+
     const cartItems = useSelector(state => state.cart.cartItems);
     const cartItemCount = cartItems.length;
 
@@ -131,7 +133,7 @@ export const Header = () => {
                             {value.length >= 2 ? <>
                                 <div className={`fixed  p-3 rounded-xl shadow-lg flex flex-col max-w-[100%] right-[20%] left-[20%] bg-white border-[0.5px]  max-h-[400px] overflow-y-auto z-[1000] top-[130px]`}>
                                     {data?.map((item) => (
-                                        <Link  key={item.id} to={`/products/${item.id}`}>
+                                        <Link key={item.id} to={`/products/${item.id}`}>
                                             <div className='border-b hover:bg-slate-100'>
                                                 <div className='flex items-center gap-3'>
                                                     <div className='w-[90px] overflow-hidden'>
@@ -173,9 +175,12 @@ export const Header = () => {
                                 </Link>
                             )}
                             <Link to='/favourite'>
-                                <div className='flex text-black hover:text-[#299efe] transition-all duration-300 flex-col items-center justify-center'>
+                                <div className='flex relative text-black hover:text-[#299efe] transition-all duration-300 flex-col items-center justify-center'>
                                     <HeartIcon />
                                     Избранное
+                                    <span className=' absolute w-4 h-4 top-[-4px] right-5 rounded-full bg-[#EB133D] text-white flex items-center justify-center text-[12px] '>
+                                        {likedItems?.length}
+                                    </span>
                                 </div>
                             </Link>
                             <Link to='/cart'>
@@ -183,7 +188,7 @@ export const Header = () => {
                                     <CartIcon />
                                     Корзина
                                     <span className=' absolute w-4 h-4 top-[-4px] right-2 rounded-full bg-[#EB133D] text-white flex items-center justify-center text-[12px] '>
-                                    {cartItemCount}
+                                        {cartItemCount}
                                     </span>
                                 </div>
                             </Link>
@@ -211,14 +216,20 @@ export const Header = () => {
                                 </Link>
                             </div>
                             <div className='flex gap-4 items-center'>
-                                <div className='  text-black'>
+                                <div className='relative  text-black'>
                                     <Link to='/favourite'>
                                         <HeartIcon />
+                                        <span className=' absolute w-4 h-4 top-[-7px] right-[-5px] rounded-full bg-[#EB133D] text-white flex items-center justify-center text-[10px] '>
+                                            {likedItems?.length}
+                                        </span>
                                     </Link>
                                 </div>
-                                <div className='  text-black'>
+                                <div className='relative  text-black'>
                                     <Link to='/cart'>
                                         <CartIcon />
+                                        <span className=' absolute w-4 h-4 top-[-7px] right-[-5px] rounded-full bg-[#EB133D] text-white flex items-center justify-center text-[10px] '>
+                                            {cartItemCount}
+                                        </span>
                                     </Link>
                                 </div>
                             </div>
@@ -270,12 +281,12 @@ export const Header = () => {
                                     </div>
                                 </> : ''}
                             </form>
-               
-                    </div>
 
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
         </header >
     );
 };

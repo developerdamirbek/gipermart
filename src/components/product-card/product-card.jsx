@@ -66,7 +66,7 @@ export const ProductCard = ({ img, title, id, price }) => {
                         <CartIcon className={'ma-sm:w-[15px] max-sm:h-[15px] '} />
                     </button>
                 )}
-                <button onClick={handleToggleLike} className='absolute max-sm:top-2 right-2  z-20 top-4 right-4'>
+                <button onClick={handleToggleLike} className='absolute max-sm:top-2 max-sm:right-2  z-20 top-4 right-4'>
                     {isLiked ? (
                         <svg width={24} height={24} className='max-sm:w-4' viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_53395_442)">

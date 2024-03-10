@@ -20,7 +20,7 @@ export const Phones = () => {
           {
             360: {
               slidesPerView: 2,
-              spaceBetween: 10
+              spaceBetween: 5
             },
             460: {
               slidesPerView: 3,

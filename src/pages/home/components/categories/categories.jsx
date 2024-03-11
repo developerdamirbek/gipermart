@@ -1,11 +1,10 @@
 import React from 'react'
 import { useGetCategories } from '../../service/query/useGetCategories'
 
-import { Autoplay, EffectCreative } from 'swiper/modules';
+import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
-import 'swiper/css/effect-creative';
 import { Link } from 'react-router-dom';
 
 export const Categories = () => {
@@ -19,38 +18,23 @@ export const Categories = () => {
                 spaceBetween={20}
                 loop={true}
                 slidesPerView={4}
-                cssMode={true}
                 autoplay={{
                     delay: 2200,
                     disableOnInteraction: false,
                 }}
-                effect=''
-                creativeEffect={{
-                    prev: {
-                        shadow: true,
-                        translate: [0, 0, -400],
-                    },
-                    next: {
-                        translate: ['100%', 0, 0],
-                    },
-                }}
                 breakpoints={{
                     360: {
                         slidesPerView: 1,
-                        effect: 'creative'
                     },
                     440: {
                         slidesPerView: 2,
                     },
-                    // when window width is >= 640px
                     640: {
                         slidesPerView: 2,
                     },
-                    // when window width is >= 768px
                     768: {
                         slidesPerView: 3,
                     },
-                    // when window width is >= 1024px
                     1024: {
                         slidesPerView: 4,
                     },

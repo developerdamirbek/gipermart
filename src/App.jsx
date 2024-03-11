@@ -19,11 +19,11 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/favourite" element={<Favourite />} />
-          <Route path="/category/:datakey" element={<SingleCatalog/>} />
-          <Route path="/products/:id" element={<ProductDetails/>} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="favourite" element={<Favourite />} />
+          <Route path="category/:datakey" element={<SingleCatalog/>} />
+          <Route path="products/:id" element={<ProductDetails/>} />
         </Route>
       </Routes>
     </>

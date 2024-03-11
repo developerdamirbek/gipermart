@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGetCategories } from '../../../../pages/home/service/query/useGetCategories';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Catalog = ({ onClose }) => {
     const { data, isLoading } = useGetCategories();

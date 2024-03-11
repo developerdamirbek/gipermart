@@ -26,7 +26,7 @@ export const Header = () => {
     const { isOpen: isOpen2, toggle } = useModal();
     const user = loadState("user");
 
-    const location = useLocation();
+    const {pathname} = useLocation();
 
     const [value, setValue] = useState('');
     const search = useDebounce(value);
@@ -47,7 +47,7 @@ export const Header = () => {
 
     useEffect(() => {
         setIsCatalogOpen(false);
-    }, [location.pathname]);
+    }, [pathname]);
 
     const likedItems = useSelector(state => state.liked.likedProducts);
 
@@ -107,7 +107,7 @@ export const Header = () => {
                                         </div>
                                     </Popover.Button>
 
-                                    <Popover.Panel data-headlessui-state="open" className="absolute z-10 w-[1100px]">
+                                    <Popover.Panel data-headlessui-state="close" className="absolute z-10 w-[1100px]">
                                         <Catalog />
                                     </Popover.Panel>
                                 </Popover>

@@ -5,21 +5,28 @@ import { request } from "../../../config/request";
 
 export const Register = ({ closeModal }) => {
     const { register, reset, handleSubmit } = useForm();
-    const submit = (data) => {
+    const submitRegister = (data) => {
         request.post("/register", data).then((res) => {
             if (res.data) {
                 saveState("user", res.data);
                 closeModal();
+                reset()
             }
         });
     };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <div className="flex flex-col mb-3">
+    <form onSubmit={handleSubmit(submitRegister)}>
+      <div className="flex w-full justify-between mb-3">
         <input
-          {...register("name")}
-          placeholder="Name"
+          {...register("firstName")}
+          placeholder="First Name"
+          className="border max-sm:text-[16px] text-black text-[20px] bg-transparent rounded-md border-blue-400 p-3 outline-none"
+          type="text"
+        />
+        <input
+          {...register("lastName")}
+          placeholder="Last Name"
           className="border max-sm:text-[16px] text-black text-[20px] bg-transparent rounded-md border-blue-400 p-3 outline-none"
           type="text"
         />

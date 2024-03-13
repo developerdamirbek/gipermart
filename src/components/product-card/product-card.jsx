@@ -12,17 +12,21 @@ export const ProductCard = ({ img, title, id, price }) => {
     const likedProducts = useSelector(state => state.liked.likedProducts);
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const [isLiked, setIsLiked] = useState(false);
+
+
     useEffect(() => {
-        setIsAddedToCart(cartItems.some(item => item.id === id));
+        setIsAddedToCart(cartItems.find(item => item.id === id));
         setIsLiked(likedProducts.includes(id));
     }, [cartItems, id, likedProducts]);
 
     const handleAddToCart = () => {
         dispatch(addToCart({ id, title, price, img, quantity: 1 }));
     };
+
     const handleRemoveFromCart = () => {
         dispatch(removeFromCart(id));
     };
+
     const handleToggleLike = () => {
         if (isLiked) {
             dispatch(removeFromLiked(id));
@@ -31,6 +35,7 @@ export const ProductCard = ({ img, title, id, price }) => {
 
         }
     };
+
     const handleButtonClick = () => {
         if (!isAddedToCart) {
             handleAddToCart();
@@ -39,6 +44,7 @@ export const ProductCard = ({ img, title, id, price }) => {
             handleRemoveFromCart();
         }
     };
+
     return (
         <div className='w-[214px] max-sm:w-[130px] relative group border-[0.5px] shadow-sm p-3 rounded-xl '>
             <Link to={`/products/${id}`}>

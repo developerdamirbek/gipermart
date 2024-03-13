@@ -4,8 +4,9 @@ import { removeFromCart, incrementCount, decrementCount } from '../../redux/redu
 import { toast } from 'react-toastify';
 import { DeleteIcon } from '../../assets/icons/delete-icon';
 import bgImg from '../../assets/images/not.jpg'
+import { Link } from 'react-router-dom';
 
-export const Cart = () => {
+const Cart = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.cartItems);
 
@@ -40,7 +41,7 @@ export const Cart = () => {
             <section>
                 <h1 className='text-[24px] font-medium text-[#333] mb-6'>Корзина</h1>
                 <div className='mx-auto grid grid-cols-12 sm:flex sm:flex-col md:grid relative max-sm:flex max-sm:flex-col gap-7'>
-                    <div className='col-span-9'>
+                    <div className={`col-span-9 ${!cartItems.length ? 'col-span-12' : ''}`}>
                         <div className="grid grid-cols-1 gap-4">
                             {cartItems.length === 0 ? (
                                 <div className='flex flex-col items-center justify-center'>
@@ -100,19 +101,29 @@ export const Cart = () => {
                             )}
                         </div>
                     </div>
-                    <div className='col-span-3 sticky max-sm:static max-sm:top-0 top-[140px] h-[200px] '>
-                        <div className="p-6 bg-[#F7F7F7] ">
-                            <h3 className='text-[24px] mb-4 text-[#333]'>В корзине</h3>
-                            <p className='text-[16px] text-[#333] mb-[17px]'>Товаров: {cartItems.length}</p>
-                            <input className='mb-3 outline-none p-1 focus:border-slate-400 border border-transparent bg-transparent text-[#333] text-[16px] placeholder:text-[#E44542]' type="text" placeholder='Введите промокод' />
-                            <p className="text-xl font-semibold">{total} Сум</p>
+                    {!cartItems.length ? (
+                        <div>
+
                         </div>
-                        <button className='text-[20px] text-[#281800] bg-[#3DBFFE] w-full py-[15px] '>
-                            Оформить заказ
-                        </button>
-                    </div>
+                    ) : (
+                        <div className='col-span-3 sticky max-sm:static max-sm:top-0 top-[140px] h-[200px] '>
+                            <div className="p-6 bg-[#F7F7F7] ">
+                                <h3 className='text-[24px] mb-4 text-[#333]'>В корзине</h3>
+                                <p className='text-[16px] text-[#333] mb-[17px]'>Товаров: {cartItems.length}</p>
+                                <input className='mb-3 outline-none p-1 focus:border-slate-400 border border-transparent bg-transparent text-[#333] text-[16px] placeholder:text-[#E44542]' type="text" placeholder='Введите промокод' />
+                                <p className="text-xl font-semibold">{total} Сум</p>
+                            </div>
+                            <Link to='/order'>
+                                <button className='text-[20px] text-[#281800] bg-[#3DBFFE] w-full py-[15px] '>
+                                    Оформить заказ
+                                </button>
+                            </Link>
+                        </div>
+                    )}
                 </div>
             </section>
         </div>
     );
 };
+
+export default Cart

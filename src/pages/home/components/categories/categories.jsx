@@ -9,11 +9,42 @@ import { Link } from 'react-router-dom';
 
 export const Categories = () => {
 
-    const { data } = useGetCategories();
+    const { data, isLoading } = useGetCategories();
 
     return (
         <div className='container'>
-            <Swiper
+            {isLoading ? (
+                <div className='flex ic justify-between gap-5'>
+                    <div role="status" className="max-w-full w-full p-4 border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-400 w-48 mb-4" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400" />
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div role="status" className="max-w-full w-full p-4 border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-400 w-48 mb-4" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400" />
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div role="status" className="max-w-full w-full p-4 border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-400 w-48 mb-4" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400" />
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div role="status" className="max-w-full w-full p-4 border-gray-200 rounded shadow animate-pulse md:p-6 dark:border-gray-700">
+                        <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-400 w-48 mb-4" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400 mb-2.5" />
+                        <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-400" />
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            ) : <Swiper
                 modules={[Autoplay]}
                 spaceBetween={20}
                 loop={true}
@@ -57,7 +88,7 @@ export const Categories = () => {
 
 
 
-            </Swiper>
+            </Swiper>}
         </div>
     )
 }

@@ -4,10 +4,11 @@ import { Categories } from './components/categories/categories'
 import { useGetPhones } from './service/query/useGetPhones'
 import { Phones } from './components/phones'
 import { Ads } from './components/ads'
+import { GroupSlider } from './components/group-slider'
 
 
 
-export const Home = () => {
+const Home = () => {
 
 
 
@@ -23,14 +24,21 @@ export const Home = () => {
             <section className='pb-[48px]'>
                 <div className="container">
                     <h2 className='text-[#333] mb-6 text-[24px] font-semibold'>Смартфоны и планшеты</h2>
-                    <Phones/>
+                    <Phones />
                 </div>
             </section>
             <section className='pt-[16px] pb-[30px] max-sm:pb-4 max-sm:pt-2 bg-[#3DBFFE]'>
                 <div className="container">
-                    <Ads/>
+                    <Ads />
+                </div>
+            </section>
+            <section className='pt-[60px]'>
+                <div className="container">
+                    <GroupSlider />
                 </div>
             </section>
         </div>
     )
 }
+
+export default Home

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-export const Profile = () => {
+ const Profile = () => {
     return (
         <div className='mt-[140px]'>
             <section>
@@ -28,3 +28,4 @@ export const Profile = () => {
         </div>
     )
 }
+export default Profile

@@ -6,7 +6,7 @@ import { addToCart, removeFromCart } from '../../redux/reducers/cartReducer';
 import { addToLiked, removeFromLiked } from '../../redux/reducers/likedReducer';
 import { toast } from 'react-toastify';
 
-export const ProductDetails = () => {
+const ProductDetails = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => state.cart.cartItems);
     const likedProducts = useSelector(state => state.liked.likedProducts);
@@ -22,6 +22,7 @@ export const ProductDetails = () => {
     };
 
     React.useEffect(() => {
+        
         if (product) {
             setIsAddedToCart(cartItems.some(item => item.id === product.id));
             setIsLiked(likedProducts.includes(product.id));
@@ -173,3 +174,5 @@ export const ProductDetails = () => {
     );
 };
 
+
+export default ProductDetails

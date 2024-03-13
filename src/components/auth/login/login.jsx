@@ -16,9 +16,9 @@ export const Login = ({ close }) => {
         close();
       }
     } catch (error) {
-      console.error("Login error:", error);
+      toast.error("Something went wrong!")
     } finally {
-        toast.success("You're logged in successfully!")
+      toast.success("You're logged in successfully!")
     }
   };
 

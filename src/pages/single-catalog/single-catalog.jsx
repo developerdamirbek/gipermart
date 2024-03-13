@@ -4,7 +4,7 @@ import { useGetCatalog } from './service/useGetCatalog';
 import { ProductCard } from '../../components/product-card/product-card';
 import { useGetBrand } from './service/useGetBrand';
 
-export const SingleCatalog = () => {
+ const SingleCatalog = () => {
     const { datakey } = useParams();
     const { data } = useGetCatalog({ datakey });
     const { data: brandData } = useGetBrand();
@@ -109,3 +109,5 @@ export const SingleCatalog = () => {
         </div>
     );
 };
+
+export default SingleCatalog

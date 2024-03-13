@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import bgImg from '../../assets/images/not.jpg';
 
-export const Favourite = () => {
+const Favourite = () => {
     const likedProducts = useSelector(state => state.liked.likedProducts);
 
     return (
@@ -31,20 +31,17 @@ export const Favourite = () => {
                             </div>
                         </div>
                     ) : (
-                        <div className="grid grid-cols-3 gap-4">
-                            {likedProducts?.map(product => (
-                                <div key={product.id} className="border p-4">
-                                    <img src={product.img} alt={product.title} />
-                                    <h2>{product.title}</h2>
-                                    <p>{product.price}</p>
+                        <div className="grid grid-cols-5 gap-4">
+                            {likedProducts?.map(item => (
+                                <div key={item.id} className="border p-4">
+                                    {item}
                                 </div>
                             ))}
-
                         </div>
                     )}
-
                 </div>
             </section>
         </div>
     );
 };
+export default Favourite
